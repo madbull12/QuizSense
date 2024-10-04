@@ -1,18 +1,19 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import type { NextAuthOptions } from 'next-auth';
-import GitHubProvider from 'next-auth/providers/github';
-
 import { env } from '@/env.mjs';
 import prisma from '@/lib/prisma';
 import { stripeServer } from '@/lib/stripe';
-
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
-    GitHubProvider({
-      clientId: env.GITHUB_ID,
-      clientSecret: env.GITHUB_SECRET,
-    }),
+    // GitHubProvider({
+    //   clientId: env.GITHUB_ID!,
+    //   clientSecret: env.GITHUB_SECRET!,
+    // }),
+    // Nodemailer({
+    //   server: env.EMAIL_SERVER,
+    //   from: env.EMAIL_FROM,
+    // }),
   ],
   callbacks: {
     async session({ session, user }) {
