@@ -2,10 +2,9 @@
 
 import { useTransition } from 'react';
 import { signIn } from 'next-auth/react';
-
-import { Icons } from '@/components/icons';
-import { Button } from '@/components/ui/button';
 import * as m from '@/paraglide/messages';
+import MovingArrowButton from '../ui/moving-arrow-button';
+import { HoverBorderGradient } from '../ui/hover-border-gradient';
 
 export const SignInButton = () => {
   const [isPending, startTransition] = useTransition();
@@ -17,9 +16,11 @@ export const SignInButton = () => {
   };
 
   return (
-    <Button onClick={handleSignIn} disabled={isPending}>
-      {isPending && <Icons.loader className="mr-2 size-4 animate-spin" />}
-      {m.sign_in()}
-    </Button>
+      <MovingArrowButton
+        className="px-4 py-2 gap-x-1 text-sm font-normal"
+        text={m.get_started()}
+      />
   );
 };
+
+

@@ -16,7 +16,7 @@ import {
 
 const LanguageLabel: Record<AvailableLanguageTag, string> = {
   en: 'English',
-  pl: 'Polski',
+  id: 'Indonesian',
 };
 
 export const LanguageSwitcher = () => {
