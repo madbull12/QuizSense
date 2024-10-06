@@ -5,7 +5,6 @@ import { Link } from '@/lib/i18n';
 import * as m from '@/paraglide/messages';
 
 export const Navbar = async () => {
-  // const session = await getServerSession(authOptions);
 
   return (
     <header className="w-full border-b">
