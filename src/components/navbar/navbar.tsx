@@ -1,10 +1,6 @@
-import { getServerSession } from 'next-auth';
-
 import { LanguageSwitcher } from './language-switcher';
 
-import { authOptions } from '@/app/api/auth/[...nextauth]/auth-options';
 import { SignInButton } from '@/components/navbar/sign-in-button';
-import { UserDropdown } from '@/components/navbar/user-dropdown';
 import { Link } from '@/lib/i18n';
 import * as m from '@/paraglide/messages';
 
