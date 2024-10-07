@@ -23,8 +23,8 @@ export async function sendVerificationRequest(params: Params) {
     const result = await transport.sendMail({
         to: identifier,
         from: provider.from,
-        subject: `Sign in to ${host}`,
-        text: text({ url, host }),
+        subject: `Sign in to QuizSense`,
+        text: text(),
         html: html({ url, host, theme }),
     })
     const failed = result.rejected.concat(result.pending).filter(Boolean)
@@ -55,7 +55,7 @@ function html(params: { url: string; host: string; theme: Theme }) {
       <tr>
         <td align="center"
           style="padding: 10px 0px; font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: ${color.text};">
-          Sign in to <strong>${escapedHost}</strong>
+          Sign in to <strong>QuizSense</strong>
         </td>
       </tr>
       <tr>
@@ -82,6 +82,6 @@ function html(params: { url: string; host: string; theme: Theme }) {
 }
 
 // Email Text body (fallback for email clients that don't render HTML, e.g. feature phones)
-function text({ url, host }: { url: string; host: string }) {
-    return `Sign in to ${host}\n${url}\n\n`
+function text() {
+    return `Sign in to QuizSense`
 }

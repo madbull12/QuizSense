@@ -2,8 +2,10 @@
 import * as React from 'react';
 import * as m from '@/paraglide/messages'
 import TextFade from '@/components/ui/text-fade';
+import { useSession } from 'next-auth/react';
 
 export default function HeadingFadeHero() {
+
   return (
     <TextFade
       direction="down"

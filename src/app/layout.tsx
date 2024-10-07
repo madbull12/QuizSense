@@ -8,11 +8,12 @@ import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ThemeSwitcher } from '@/components/theme-switcher';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/components/ui/sonner';
 import { siteConfig } from '@/lib/constant';
 import { fonts } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import { languageTag } from '@/paraglide/runtime.js';
+import { SessionProvider } from 'next-auth/react';
 
 export const generateMetadata = (): Metadata => ({
   metadataBase: new URL(siteConfig.url()),
@@ -54,13 +55,15 @@ const RootLayout = ({ children }: PropsWithChildren) => {
       <html lang={languageTag()} suppressHydrationWarning>
         <body className={cn('min-h-screen font-sans', fonts)}>
           <ThemeProvider attribute="class">
-            <Navbar />
-            {children}
-            <div className="absolute top-0 z-[-2] h-screen w-screen bg-white dark:bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+            <SessionProvider>
+              <Navbar />
+              {children}
+              <div className="absolute top-0 z-[-2] h-screen w-screen bg-white dark:bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
 
-            <ThemeSwitcher className="absolute bottom-5 right-5 z-10" />
-            <Footer />
-            <Toaster />
+              <ThemeSwitcher className="absolute bottom-5 right-5 z-10" />
+              <Footer />
+              <Toaster richColors />
+            </SessionProvider>
           </ThemeProvider>
         </body>
       </html>

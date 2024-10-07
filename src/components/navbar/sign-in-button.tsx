@@ -8,6 +8,7 @@ import { HoverBorderGradient } from '../ui/hover-border-gradient';
 import { Link, useRouter } from '@/lib/i18n';
 
 export const SignInButton = () => {
+
   const router = useRouter();
   return (
     <MovingArrowButton

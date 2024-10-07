@@ -1,21 +1,30 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import { NextAuthConfig } from 'next-auth';
+import NextAuth, { NextAuthConfig } from 'next-auth';
 import { env } from '@/env.mjs';
 import prisma from '@/lib/prisma';
 import { stripeServer } from '@/lib/stripe';
 import Nodemailer from 'next-auth/providers/nodemailer'
 import { sendVerificationRequest } from '@/helper/sendVerificationRequest';
-export const authOptions: NextAuthConfig = {
+
+export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
 
     Nodemailer({
-      server: env.EMAIL_SERVER,
-      from: env.EMAIL_FROM,
+      server: {
+        host: process.env.EMAIL_SERVER_HOST,
+        port: Number(process.env.EMAIL_SERVER_PORT),
+        auth: {
+          user: process.env.EMAIL_SERVER_USER,
+          pass: process.env.EMAIL_SERVER_PASSWORD,
+        },
+      },
+      from: process.env.EMAIL_FROM,
       sendVerificationRequest
-    })
+    }),
 
   ],
+  secret: env.AUTH_SECRET,
   callbacks: {
     async session({ session, user }) {
       if (!session.user) return session;
@@ -27,6 +36,9 @@ export const authOptions: NextAuthConfig = {
       return session;
     },
   },
+  // pages: {
+  //   signIn: "/auth/signin",
+  // },
   // events: {
   //   createUser: async ({ user }) => {
   //     if (!user.email || !user.name) return;
@@ -46,4 +58,4 @@ export const authOptions: NextAuthConfig = {
   //       });
   //   },
   // },
-};
+})
