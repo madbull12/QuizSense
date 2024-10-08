@@ -40,7 +40,7 @@ const SigninForm = () => {
         await signIn('nodemailer', {
           email: values.email,
           redirect: false,
-          callbackUrl: `${window.location.origin}`,
+          callbackUrl: `${window.location.origin}/dashboard`,
         });
         toast.success(`Email has been sent to ${values.email}`)
       } catch (error) {
@@ -51,8 +51,8 @@ const SigninForm = () => {
     });
   }
   return (
-    <div className="py-6 px-8 w-3/4 md:w-1/2 lg:w-2/6 mx-auto border mt-8 rounded-lg space-y-4">
-      <h4 className="text-2xl font-bold">Sign in with email</h4>
+    <div className="py-4 md:py-6 md:px-8  px-6 w-3/4 md:w-1/2 lg:w-2/6 mx-auto border mt-8 rounded-lg space-y-4">
+      <h4 className=" text-lg md:text-2xl font-bold">Sign in with email</h4>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
@@ -60,11 +60,12 @@ const SigninForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className='text-xs sm:text-sm md:text-base'>Email</FormLabel>
                 <FormControl>
                   <InputBlock
                     type="email"
                     placeholder="test@gmail.com"
+                    className="placeholder:text-sm text-sm"
                     {...field}
                   />
                 </FormControl>
@@ -73,7 +74,7 @@ const SigninForm = () => {
               </FormItem>
             )}
           />
-          <StatefulButton text="Send" isPending={isPending} type='submit' />
+          <StatefulButton className='text-sm md:text-base' text="Send" isPending={isPending} type='submit' />
         </form>
       </Form>
     </div>
