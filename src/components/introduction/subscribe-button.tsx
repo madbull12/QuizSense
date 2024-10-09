@@ -15,7 +15,7 @@ const SubscribeButton = () => {
   return (
     <motion.div initial="hidden" animate="show" variants={gradientVariants}>
       <RainbowButton className="flex items-center gap-x-2 mx-auto text-sm md:text-base">
-        <Link href="/dashboard">{m.try_out()}</Link>
+        <Link href="/auth/signin">{m.try_out()}</Link>
         <div className="group-hover:translate-x-2 transition-all ">
           <ChevronRight size={18} />
         </div>
