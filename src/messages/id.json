@@ -1,12 +1,12 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "app_name": "QuizSense",
-  "sign_in": "Zaloguj się",
+  "sign_in": "Masuk",
   "theme_toggle_label": "zmień motyw",
-  "my_account": "Moje konto",
+  "my_account": "Akun Saya",
   "upgrade_to_pro_cta": "Przejdź na PRO",
-  "log_out": "Wyloguj się",
-  "you_are_a_pro": "Jesteś PRO!",
+  "log_out": "Keluar",
+  "you_are_a_pro": "Versi Pro",
   "input_placeholder": "Wpisz swoje imię ...",
   "submit_form": "Submit",
   "meta_title": "QuizSense",
@@ -25,6 +25,9 @@
   "quizSense_description": "Temukan cara belajar yang lebih cerdas dengan kuis berbasis AI yang menyesuaikan dengan Anda. Kuasai topik apa pun, kapan saja. Siap meningkatkan pengetahuan Anda?",
   "get_started": "Mulai",
   "github": "Github",
-  "try_out":"Coba secara gratis"
+  "try_out":"Coba secara gratis",
+  "dashboard":"Dasbor",
+  "manage_account":"Kelola Akun"
+
 
 }
