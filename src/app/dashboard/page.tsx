@@ -4,12 +4,15 @@ import { env } from '@/env.mjs'
 import { redirect } from 'next/navigation'
 
 const DashboardPage = async() => {
-    const session = await auth()
+    const session = await auth();
+    console.log(session)
     if(!session?.user) {
        return redirect(`/auth/signin`);
     }
   return (
-    <div>DashboardPage</div>
+    <main className="container ">
+          <h1>Dashboard page</h1>
+    </main>
   )
 }
 
