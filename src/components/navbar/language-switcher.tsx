@@ -19,7 +19,7 @@ const LanguageLabel: Record<AvailableLanguageTag, string> = {
   id: 'Indonesian',
 };
 
-export const LanguageSwitcher = () => {
+const LanguageSwitcher = () => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -45,3 +45,5 @@ export const LanguageSwitcher = () => {
     </DropdownMenu>
   );
 };
+
+export default LanguageSwitcher

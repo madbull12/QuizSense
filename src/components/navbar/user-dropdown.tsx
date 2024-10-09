@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-import Image from 'next/image';
 import { Session } from 'next-auth';
 import { signOut } from 'next-auth/react';
 
@@ -18,6 +17,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { env } from '@/env.mjs';
 import * as m from '@/paraglide/messages';
+import ModalAccount from '../account/modal-account';
 
 export const UserDropdown = ({ session: { user } }: { session: Session }) => {
   const [isPending, setIsPending] = useState(false);
@@ -36,25 +36,31 @@ export const UserDropdown = ({ session: { user } }: { session: Session }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Image
+        {/* <Image
           className="overflow-hidden rounded-full"
           src={`${user?.image}`}
           alt={`${user?.name}`}
           width={32}
           height={32}
-        />
+        /> */}
+        <div className="w-[32px] bg-gray-500 h-[32px] rounded-full text-sm grid place-items-center">
+          AL
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>{m.my_account()}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <div className="flex flex-col items-center justify-center p-2">
-          <Image
+          {/* <Image
             className="overflow-hidden rounded-full"
             src={`${user?.image}`}
             alt={`${user?.name}`}
             width={100}
             height={100}
-          />
+          /> */}
+          <div className="w-[100px] bg-gray-500 h-[100px] rounded-full text-lg grid place-items-center">
+            AL
+          </div>
           <h2 className="py-2 text-lg font-bold">{user?.name}</h2>
           <Button
             onClick={handleCreateCheckoutSession}
@@ -74,6 +80,9 @@ export const UserDropdown = ({ session: { user } }: { session: Session }) => {
           </Button>
         </div>
         <DropdownMenuSeparator />
+        <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+          <ModalAccount />
+        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => signOut()}>
           <Icons.logOut className="mr-2 size-4" /> <span>{m.log_out()}</span>
         </DropdownMenuItem>
