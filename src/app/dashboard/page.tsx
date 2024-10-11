@@ -9,8 +9,8 @@ const DashboardPage = async () => {
     return redirect(`/auth/signin`);
   }
   return (
-    <main className="container ">
-      <h1>Dashboard page</h1>
+    <main className="container p-4">
+      <h1 className="text-3xl font-bold">Welcome to QuizSense</h1>
     </main>
   );
 };
