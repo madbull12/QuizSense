@@ -8,6 +8,7 @@ import * as m from '@/paraglide/messages';
 import { UserDropdown } from './user-dropdown';
 import { useSession } from 'next-auth/react';
 import { Session } from 'next-auth';
+import { ThemeSwitcher } from '@/components/theme-switcher';
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -30,6 +31,7 @@ export const Navbar = () => {
           )}
 
           <LanguageSwitcher />
+          <ThemeSwitcher />
         </div>
       </div>
     </header>
