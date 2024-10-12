@@ -53,14 +53,13 @@ const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <LanguageProvider>
       <html lang={languageTag()} suppressHydrationWarning>
-        <body className={cn('min-h-screen font-sans', fonts)}>
+        <body className={cn('min-h-screen font-sans overflow-x-hidden', fonts)}>
           <ThemeProvider attribute="class">
             <SessionProvider>
               <Navbar />
               {children}
               <div className="absolute top-0 z-[-2] h-screen w-screen bg-white dark:bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
 
-              <ThemeSwitcher className="absolute bottom-5 right-5 z-10" />
               <Footer />
               <Toaster richColors />
             </SessionProvider>
