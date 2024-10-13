@@ -1,8 +1,9 @@
-import { cn } from '@/lib/utils';
+'use client';
+
 import React from 'react';
-import { BentoGrid, BentoGridItem } from '../ui/bento-grid';
+import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
 import { Flame, History, MessageCircleQuestion } from 'lucide-react';
-import { TypingAnimation } from '../ui/typing-animation';
+import { ReactTyped } from 'react-typed';
 // import {
 //   IconArrowWaveRightUp,
 //   IconBoxAlignRightFilled,
@@ -38,12 +39,24 @@ const items = [
     description: 'Challenge yourself with a quiz!',
     header: (
       <div className="flex flex-col gap-y-2">
-        <TypingAnimation
+        {/* <TypingAnimation
           text="The process of preserving a body for the afterlife in Ancient Egypt is called ______________."
           className="w-full flex-1 text-3xl font-light text-left break-words"
           duration={30}
+        /> */}
+        <ReactTyped
+          className="text-3xl font-light text-left break-words"
+          startWhenVisible
+          strings={[
+            'The process of preserving a body for the afterlife in Ancient Egypt is called ______________.',
+            "The study of how the frequency of alleles in a population changes over time is known as ______________."
+          ]}
+          typeSpeed={40}
+          backSpeed={20}
+          loop
+
         />
-        <p>Answer is <span className=" font-bold">mummification</span> </p>
+        {/* <p>Answer is <span className=" font-bold">mummification</span> </p> */}
       </div>
     ),
     icon: <MessageCircleQuestion size={20} />,
