@@ -4,15 +4,7 @@ import React from 'react';
 import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
 import { Flame, History, MessageCircleQuestion } from 'lucide-react';
 import { ReactTyped } from 'react-typed';
-// import {
-//   IconArrowWaveRightUp,
-//   IconBoxAlignRightFilled,
-//   IconBoxAlignTopLeft,
-//   IconClipboardCopy,
-//   IconFileBroken,
-//   IconSignature,
-//   IconTableColumn,
-// } from "@tabler/icons-react";
+
 
 const DashboardGrid = () => {
   return (
@@ -30,20 +22,14 @@ const DashboardGrid = () => {
     </BentoGrid>
   );
 };
-const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
-);
+
 const items = [
   {
     title: 'Quiz Me',
     description: 'Challenge yourself with a quiz!',
     header: (
       <div className="flex flex-col gap-y-2">
-        {/* <TypingAnimation
-          text="The process of preserving a body for the afterlife in Ancient Egypt is called ______________."
-          className="w-full flex-1 text-3xl font-light text-left break-words"
-          duration={30}
-        /> */}
+
         <ReactTyped
           className="text-3xl font-light text-left break-words"
           startWhenVisible
@@ -56,7 +42,6 @@ const items = [
           loop
 
         />
-        {/* <p>Answer is <span className=" font-bold">mummification</span> </p> */}
       </div>
     ),
     icon: <MessageCircleQuestion size={20} />,

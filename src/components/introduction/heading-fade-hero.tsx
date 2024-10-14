@@ -6,7 +6,6 @@ import { useSession } from 'next-auth/react';
 
 export default function HeadingFadeHero() {
   const { data } = useSession()
-  console.log(data)
   return (
     <TextFade
       direction="down"

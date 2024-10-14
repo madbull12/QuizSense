@@ -1,6 +1,5 @@
 import React from 'react';
 import { auth } from '@/app/api/auth/[...nextauth]/auth';
-import { env } from '@/env.mjs';
 import { redirect } from 'next/navigation';
 import { Metadata } from 'next';
 import DashboardGrid from '@/components/dashboard/dashboard-grid';
