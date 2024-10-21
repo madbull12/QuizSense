@@ -17,6 +17,7 @@ const DashboardGrid = () => {
           description={item.description}
           header={item.header}
           icon={item.icon}
+          href={item.href}
           className={i === 2 || i === 6 ? 'md:col-span-4' : 'md:col-span-2'}
         />
       ))}
@@ -30,18 +31,21 @@ const items = [
     description: 'Challenge yourself with a quiz!',
     header: <QuizMeSection />,
     icon: <MessageCircleQuestion size={20} />,
+    href: '/dashboard/quiz-me',
   },
   {
     title: 'History',
     description: 'View your recent attempts',
     header: <HistorySection />,
     icon: <History size={20} />,
+    href: '/',
   },
   {
     title: 'Hot Topics',
     description: 'Discover hot topics that suit your interests',
     header: <MarqueeHotTopics />,
     icon: <Flame size={20} />,
+    href: '/',
   },
   //   {
   //     title: "The Power of Communication",

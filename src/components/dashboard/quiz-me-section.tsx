@@ -3,7 +3,7 @@ import { ReactTyped } from 'react-typed'
 
 const QuizMeSection = () => {
   return (
-<div className="flex flex-col gap-y-2">
+      <div className="flex flex-col gap-y-2">
         <ReactTyped
           className="text-3xl font-light text-left break-words"
           // startWhenVisible
@@ -17,6 +17,7 @@ const QuizMeSection = () => {
           typeSpeed={20}
         />
       </div>
+
   )
 }
 
