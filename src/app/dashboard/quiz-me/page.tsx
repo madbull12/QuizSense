@@ -1,3 +1,4 @@
+import CreateQuizForm from '@/components/dashboard/quiz/create-quiz-form'
 import { Metadata } from 'next'
 import React from 'react'
 
@@ -7,7 +8,9 @@ export const metadata: Metadata = {
 }
 const QuizMePage = () => {
   return (
-    <div>QuizMePage</div>
+    <main className='p-8'>
+      <CreateQuizForm />
+    </main>
   )
 }
 
