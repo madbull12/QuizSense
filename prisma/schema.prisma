@@ -47,7 +47,7 @@ model User {
   isActive         Boolean   @default(false)
   accounts         Account[]
   sessions         Session[]
-  games            Game[]
+  games            Quiz[]
 }
 
 model VerificationToken {
@@ -58,20 +58,20 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-enum GameType {
-  mcq
+enum QuizType {
+  multiple_choice
   true_false
   fill_in_the_blanks
 }
 
-model Game {
+model Quiz {
   id          String     @id @default(cuid())
   userId      String
   questions   Question[]
   timeStarted DateTime
   topic       String
   timeEnded   DateTime?
-  gameType    GameType
+  quizType    QuizType
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
@@ -85,10 +85,10 @@ model Question {
   options           Json? // for mcq questions
   percentageCorrect Float? // for open_ended questions
   isCorrect         Boolean? // for mcq questions
-  questionType      GameType
+  questionType      QuizType
   userAnswer        String?
 
-  game Game @relation(fields: [gameId], references: [id])
+  game Quiz @relation(fields: [gameId], references: [id])
 
   @@index([gameId])
 }
