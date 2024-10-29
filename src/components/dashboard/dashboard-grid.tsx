@@ -45,7 +45,7 @@ const items = [
     description: 'Discover hot topics that suit your interests',
     header: <MarqueeHotTopics />,
     icon: <Flame size={20} />,
-    href: '/',
+    href: '/dashboard',
   },
   //   {
   //     title: "The Power of Communication",
