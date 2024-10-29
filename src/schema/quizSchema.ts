@@ -5,7 +5,10 @@ export const quizSchema = z.object({
         message: "Topic shouldn't be empty"
     }),
     numberOfQuestions: z.number().min(1, {
-        message: "Please type the number of questions you want"
+        message: "Please provide the number of questions you want"
+    }).max(20,{
+        message:"Number of questions shouldn't be above 20"
+        
     }),
     quizType: z.union([
         z.literal('multiple_choice'),
