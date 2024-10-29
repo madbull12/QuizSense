@@ -63,6 +63,11 @@ enum QuizType {
   true_false
   fill_in_the_blanks
 }
+enum Difficulty {
+  easy
+  medium
+  advanced
+}
 
 model Quiz {
   id          String     @id @default(cuid())
@@ -72,6 +77,7 @@ model Quiz {
   topic       String
   timeEnded   DateTime?
   quizType    QuizType
+  difficulty  Difficulty
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
