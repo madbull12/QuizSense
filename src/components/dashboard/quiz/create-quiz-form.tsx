@@ -16,6 +16,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import QuizTypeSelection from '@/components/dashboard/quiz/quiz-type-selection';
+import DifficultySelection from '@/components/dashboard/quiz/difficulty-selection';
 
 const CreateQuizForm = () => {
   const form = useForm<QuizSchema>({
@@ -84,7 +85,8 @@ const CreateQuizForm = () => {
           )}
         />
         <QuizTypeSelection />
-        <Button type="submit" className="w-1/3 flex justify-center mx-auto">Submit</Button>
+        <DifficultySelection />
+        <Button type="submit" className="w-1/3 flex justify-center mx-auto">Generate quiz</Button>
       </form>
     </Form>
   );
